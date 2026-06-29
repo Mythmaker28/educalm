@@ -1,0 +1,6 @@
+qa-*.png
+app.js
+tools-expand-animals.mjs
+*.log
+.DS_Store
+Thumbs.db

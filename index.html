@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EduCalm - Prototype</title>
+    <meta
+      name="description"
+      content="EduCalm aide à réagir avec calme face aux situations difficiles avec chiens, chats et enfants."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app-enhanced.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Prototype terrain</p>
+          <h1>EduCalm</h1>
+        </div>
+        <button class="icon-button" id="clearDataButton" type="button" title="Effacer les données locales" aria-label="Effacer les données locales">
+          <span aria-hidden="true">×</span>
+        </button>
+      </header>
+
+      <main>
+        <section class="hero-band" aria-labelledby="hero-title">
+          <div class="dog-scene" aria-hidden="true">
+            <div class="sun"></div>
+            <div class="dog">
+              <div class="dog-ear"></div>
+              <div class="dog-head"></div>
+              <div class="dog-body"></div>
+              <div class="dog-leg dog-leg-a"></div>
+              <div class="dog-leg dog-leg-b"></div>
+              <div class="dog-tail"></div>
+            </div>
+          </div>
+          <div class="hero-copy">
+            <p class="eyebrow">Avant de crier</p>
+            <h2 id="hero-title">Reprends le cadre en moins de 30 secondes.</h2>
+            <p>
+              Choisis chien, chat, enfant ou nutrition, coche les risques, puis récupère une réponse courte:
+              quoi faire maintenant, quoi dire, quoi éviter et quand consulter.
+            </p>
+            <div class="hero-proof" aria-label="Points forts">
+              <span>42 fiches concrètes</span>
+              <span>Chiens, chats, enfants</span>
+              <span>Nutrition et poids</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="sales-strip" aria-label="Offre de validation">
+          <div>
+            <p class="eyebrow">Test vendable</p>
+            <strong>Une URL publique + un bouton Stripe suffisent pour vendre ce MVP.</strong>
+          </div>
+          <button class="secondary-button" type="button" data-jump-tab="validation">Voir l'offre</button>
+        </section>
+
+        <section class="action-strip" aria-label="Actions rapides">
+          <button class="primary-action danger" id="panicButton" type="button">
+            <span class="button-icon" aria-hidden="true">!</span>
+            Je vais exploser
+          </button>
+          <button class="primary-action" id="repeatButton" type="button">
+            <span class="button-icon" aria-hidden="true">↻</span>
+            Problème qui revient
+          </button>
+        </section>
+
+        <nav class="tabs" aria-label="Sections EduCalm">
+          <button class="tab is-active" type="button" data-tab="tool">Outil</button>
+          <button class="tab" type="button" data-tab="library">Situations</button>
+          <button class="tab" type="button" data-tab="saved">Historique</button>
+          <button class="tab" type="button" data-tab="validation">Validation</button>
+        </nav>
+
+        <section class="tab-panel is-active" id="panel-tool" aria-labelledby="tab-tool">
+          <form class="tool-grid" id="calmForm">
+            <div class="field-block">
+              <label for="scenarioSelect">Situation</label>
+              <select id="scenarioSelect" name="scenario"></select>
+            </div>
+
+            <div class="field-block">
+              <label for="contextSelect">Contexte principal</label>
+              <select id="contextSelect" name="context">
+                <option value="maintenant">Ça se passe maintenant</option>
+                <option value="seul">Quand il est seul</option>
+                <option value="balade">En balade</option>
+                <option value="maison">À la maison</option>
+                <option value="invites">Avec des invités ou proches</option>
+                <option value="autres-chiens">Avec d'autres chiens</option>
+              </select>
+            </div>
+
+            <div class="field-block">
+              <label for="profileSelect">Profil du chien</label>
+              <select id="profileSelect" name="profile">
+                <option value="adulte">Chien adulte</option>
+                <option value="chiot">Chiot</option>
+                <option value="senior">Chien senior</option>
+                <option value="nouveau">Arrivé récemment</option>
+              </select>
+            </div>
+
+            <div class="field-block range-block">
+              <label for="intensityRange">Intensité ressentie</label>
+              <input id="intensityRange" name="intensity" type="range" min="1" max="5" value="3" />
+              <div class="range-labels">
+                <span>gérable</span>
+                <strong id="intensityValue">3</strong>
+                <span>je craque</span>
+              </div>
+            </div>
+
+            <fieldset class="risk-block">
+              <legend>Signaux à traiter en priorité</legend>
+              <label><input type="checkbox" name="risk" value="bite" /> Morsure, blessure ou risque de morsure</label>
+              <label><input type="checkbox" name="risk" value="pain" /> Douleur possible ou comportement soudain</label>
+              <label><input type="checkbox" name="risk" value="child" /> Enfant impliqué ou proche du chien</label>
+              <label><input type="checkbox" name="risk" value="distress" /> Je me sens hors de contrôle</label>
+            </fieldset>
+
+            <div class="field-block full">
+              <label for="detailsInput">Détail utile, optionnel</label>
+              <textarea
+                id="detailsInput"
+                name="details"
+                rows="4"
+                maxlength="320"
+                placeholder="Exemple: il aboie dès que je prends mes clés, surtout le soir."
+              ></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="submit-button" type="submit">Générer la réponse calme</button>
+              <button class="secondary-button" id="resetFormButton" type="button">Réinitialiser</button>
+            </div>
+          </form>
+
+          <article class="result-panel" id="resultPanel" aria-live="polite">
+            <div class="empty-state">
+              <h3>Ta réponse apparaîtra ici.</h3>
+              <p>Le format reste volontairement court pour être lisible pendant un moment de tension.</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="tab-panel" id="panel-library" aria-labelledby="tab-library">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Bibliothèque PATTE</p>
+              <h2>Situations chien prêtes à tester</h2>
+            </div>
+            <input id="librarySearch" type="search" placeholder="Filtrer..." aria-label="Filtrer les situations" />
+          </div>
+          <div class="cards-grid" id="libraryGrid"></div>
+        </section>
+
+        <section class="tab-panel" id="panel-saved" aria-labelledby="tab-saved">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Local uniquement</p>
+              <h2>Historique supprimable</h2>
+            </div>
+            <button class="secondary-button" id="exportButton" type="button">Copier l'historique</button>
+          </div>
+          <div class="cards-grid" id="savedGrid"></div>
+        </section>
+
+        <section class="tab-panel" id="panel-validation" aria-labelledby="tab-validation">
+          <div class="validation-layout">
+            <article class="price-card">
+              <p class="eyebrow">Test d'intention</p>
+              <h2>Plan 7 jours à 4,90 €</h2>
+              <p>
+                Sur le site public, ce bouton devient un lien Stripe Payment Link. Ici il mesure
+                l'intention d'achat avant de brancher un paiement réel.
+              </p>
+              <label for="emailInput">Email optionnel</label>
+              <input id="emailInput" type="email" placeholder="toi@example.com" autocomplete="email" />
+              <button class="submit-button" id="intentButton" type="button">Je paierais 4,90 € pour un plan clair</button>
+              <p class="microcopy" id="intentMessage">Aucune donnée ne quitte ce navigateur.</p>
+            </article>
+
+            <article class="metrics-card">
+              <p class="eyebrow">Signaux locaux</p>
+              <h2>Mesure MVP</h2>
+              <dl class="metrics-list">
+                <div>
+                  <dt>Réponses générées</dt>
+                  <dd id="metricPlans">0</dd>
+                </div>
+                <div>
+                  <dt>Intentions prix</dt>
+                  <dd id="metricIntents">0</dd>
+                </div>
+                <div>
+                  <dt>Situations sauvegardées</dt>
+                  <dd id="metricSaved">0</dd>
+                </div>
+              </dl>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="safety-footer">
+        <strong>Limite claire:</strong>
+        EduCalm ne pose pas de diagnostic et ne remplace pas un vétérinaire,
+        un éducateur ou un service d'urgence.
+      </footer>
+    </div>
+  </body>
+</html>
