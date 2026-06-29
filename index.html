@@ -1,12 +1,12 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>EduCalm - Prototype</title>
+    <title>EduCalm - outil de calme</title>
     <meta
       name="description"
-      content="EduCalm aide à réagir avec calme face aux situations difficiles avec chiens, chats et enfants."
+      content="EduCalm aide a reprendre le cadre en moins de 30 secondes face aux situations difficiles avec enfants, chiens, chats, equides et autres animaux."
     />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./app-enhanced.js" defer></script>
@@ -14,39 +14,49 @@
   <body>
     <div class="app-shell">
       <header class="topbar">
-        <div>
-          <p class="eyebrow">Prototype terrain</p>
-          <h1>EduCalm</h1>
+        <div class="brand-lockup">
+          <span class="brand-mark" aria-hidden="true">E</span>
+          <div>
+            <p class="eyebrow">Prototype terrain</p>
+            <h1>EduCalm</h1>
+          </div>
         </div>
-        <button class="icon-button" id="clearDataButton" type="button" title="Effacer les données locales" aria-label="Effacer les données locales">
-          <span aria-hidden="true">×</span>
-        </button>
+        <div class="topbar-actions">
+          <button class="ghost-link" type="button" data-jump-tab="validation">Offre 4,90 EUR</button>
+          <button class="icon-button" id="clearDataButton" type="button" title="Effacer les donnees locales" aria-label="Effacer les donnees locales">
+            <span aria-hidden="true">x</span>
+          </button>
+        </div>
       </header>
 
       <main>
         <section class="hero-band" aria-labelledby="hero-title">
           <div class="dog-scene" aria-hidden="true">
-            <div class="sun"></div>
-            <div class="dog">
-              <div class="dog-ear"></div>
-              <div class="dog-head"></div>
-              <div class="dog-body"></div>
-              <div class="dog-leg dog-leg-a"></div>
-              <div class="dog-leg dog-leg-b"></div>
-              <div class="dog-tail"></div>
+            <div class="field-card">
+              <div class="field-card-top">
+                <span class="status-dot"></span>
+                <strong>30 sec</strong>
+              </div>
+              <p>Stop. Distance. Phrase courte. Suite claire.</p>
+              <div class="field-steps">
+                <span>securiser</span>
+                <span>dire</span>
+                <span>eviter</span>
+                <span>escalader</span>
+              </div>
             </div>
           </div>
           <div class="hero-copy">
             <p class="eyebrow">Avant de crier</p>
-            <h2 id="hero-title">Reprends le cadre en moins de 30 secondes.</h2>
+            <h2 id="hero-title">Une reponse courte quand la tension monte.</h2>
             <p>
-              Choisis chien, chat, enfant ou nutrition, coche les risques, puis récupère une réponse courte:
-              quoi faire maintenant, quoi dire, quoi éviter et quand consulter.
+              EduCalm transforme une situation tendue en plan lisible: quoi faire maintenant,
+              quoi dire, quoi eviter et quand demander de l'aide.
             </p>
             <div class="hero-proof" aria-label="Points forts">
-              <span>42 fiches concrètes</span>
-              <span>Chiens, chats, enfants</span>
-              <span>Nutrition et poids</span>
+              <span>52 fiches concretes</span>
+              <span>Enfants et animaux</span>
+              <span>Garde-fous visibles</span>
             </div>
           </div>
         </section>
@@ -54,7 +64,7 @@
         <section class="sales-strip" aria-label="Offre de validation">
           <div>
             <p class="eyebrow">Test vendable</p>
-            <strong>Une URL publique + un bouton Stripe suffisent pour vendre ce MVP.</strong>
+            <strong>URL publique, pack 7 jours, paiement simple. Pas besoin d'une app lourde pour tester.</strong>
           </div>
           <button class="secondary-button" type="button" data-jump-tab="validation">Voir l'offre</button>
         </section>
@@ -62,11 +72,11 @@
         <section class="action-strip" aria-label="Actions rapides">
           <button class="primary-action danger" id="panicButton" type="button">
             <span class="button-icon" aria-hidden="true">!</span>
-            Je vais exploser
+            <span>Je vais exploser</span>
           </button>
           <button class="primary-action" id="repeatButton" type="button">
             <span class="button-icon" aria-hidden="true">↻</span>
-            Problème qui revient
+            <span>Probleme qui revient</span>
           </button>
         </section>
 
@@ -87,64 +97,65 @@
             <div class="field-block">
               <label for="contextSelect">Contexte principal</label>
               <select id="contextSelect" name="context">
-                <option value="maintenant">Ça se passe maintenant</option>
+                <option value="maintenant">Ca se passe maintenant</option>
                 <option value="seul">Quand il est seul</option>
                 <option value="balade">En balade</option>
-                <option value="maison">À la maison</option>
-                <option value="invites">Avec des invités ou proches</option>
+                <option value="maison">A la maison</option>
+                <option value="invites">Avec des invites ou proches</option>
                 <option value="autres-chiens">Avec d'autres chiens</option>
               </select>
             </div>
 
             <div class="field-block">
-              <label for="profileSelect">Profil du chien</label>
+              <label for="profileSelect">Profil</label>
               <select id="profileSelect" name="profile">
                 <option value="adulte">Chien adulte</option>
                 <option value="chiot">Chiot</option>
                 <option value="senior">Chien senior</option>
-                <option value="nouveau">Arrivé récemment</option>
+                <option value="nouveau">Arrive recemment</option>
               </select>
             </div>
 
             <div class="field-block range-block">
-              <label for="intensityRange">Intensité ressentie</label>
+              <label for="intensityRange">Intensite ressentie</label>
               <input id="intensityRange" name="intensity" type="range" min="1" max="5" value="3" />
               <div class="range-labels">
-                <span>gérable</span>
+                <span>gerable</span>
                 <strong id="intensityValue">3</strong>
                 <span>je craque</span>
               </div>
             </div>
 
             <fieldset class="risk-block">
-              <legend>Signaux à traiter en priorité</legend>
+              <legend>Signaux a traiter en priorite</legend>
               <label><input type="checkbox" name="risk" value="bite" /> Morsure, blessure ou risque de morsure</label>
               <label><input type="checkbox" name="risk" value="pain" /> Douleur possible ou comportement soudain</label>
-              <label><input type="checkbox" name="risk" value="child" /> Enfant impliqué ou proche du chien</label>
-              <label><input type="checkbox" name="risk" value="distress" /> Je me sens hors de contrôle</label>
+              <label><input type="checkbox" name="risk" value="child" /> Enfant implique ou proche du chien</label>
+              <label><input type="checkbox" name="risk" value="distress" /> Je me sens hors de controle</label>
             </fieldset>
 
             <div class="field-block full">
-              <label for="detailsInput">Détail utile, optionnel</label>
+              <label for="detailsInput">Detail utile, optionnel</label>
               <textarea
                 id="detailsInput"
                 name="details"
                 rows="4"
                 maxlength="320"
-                placeholder="Exemple: il aboie dès que je prends mes clés, surtout le soir."
+                placeholder="Exemple: il aboie des que je prends mes cles, surtout le soir."
               ></textarea>
             </div>
 
             <div class="form-actions">
-              <button class="submit-button" type="submit">Générer la réponse calme</button>
-              <button class="secondary-button" id="resetFormButton" type="button">Réinitialiser</button>
+              <button class="submit-button" type="submit">Generer la reponse calme</button>
+              <button class="secondary-button" id="resetFormButton" type="button">Reinitialiser</button>
             </div>
           </form>
 
           <article class="result-panel" id="resultPanel" aria-live="polite">
             <div class="empty-state">
-              <h3>Ta réponse apparaîtra ici.</h3>
-              <p>Le format reste volontairement court pour être lisible pendant un moment de tension.</p>
+              <span class="empty-kicker">Pret</span>
+              <h3>La reponse apparait ici.</h3>
+              <p>Format court: action immediate, phrase exacte, erreur a eviter, escalation si besoin.</p>
             </div>
           </article>
         </section>
@@ -152,8 +163,8 @@
         <section class="tab-panel" id="panel-library" aria-labelledby="tab-library">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Bibliothèque PATTE</p>
-              <h2>Situations chien prêtes à tester</h2>
+              <p class="eyebrow">Bibliotheque structuree</p>
+              <h2>Situations et guides prets a tester</h2>
             </div>
             <input id="librarySearch" type="search" placeholder="Filtrer..." aria-label="Filtrer les situations" />
           </div>
@@ -175,15 +186,15 @@
           <div class="validation-layout">
             <article class="price-card">
               <p class="eyebrow">Test d'intention</p>
-              <h2>Plan 7 jours à 4,90 €</h2>
+              <h2>Pack calme 7 jours a 4,90 EUR</h2>
               <p>
                 Sur le site public, ce bouton devient un lien Stripe Payment Link. Ici il mesure
-                l'intention d'achat avant de brancher un paiement réel.
+                l'intention d'achat avant de brancher un paiement reel.
               </p>
               <label for="emailInput">Email optionnel</label>
               <input id="emailInput" type="email" placeholder="toi@example.com" autocomplete="email" />
-              <button class="submit-button" id="intentButton" type="button">Je paierais 4,90 € pour un plan clair</button>
-              <p class="microcopy" id="intentMessage">Aucune donnée ne quitte ce navigateur.</p>
+              <button class="submit-button" id="intentButton" type="button">Je paierais 4,90 EUR pour un plan clair</button>
+              <p class="microcopy" id="intentMessage">Aucune donnee ne quitte ce navigateur.</p>
             </article>
 
             <article class="metrics-card">
@@ -191,7 +202,7 @@
               <h2>Mesure MVP</h2>
               <dl class="metrics-list">
                 <div>
-                  <dt>Réponses générées</dt>
+                  <dt>Reponses generees</dt>
                   <dd id="metricPlans">0</dd>
                 </div>
                 <div>
@@ -199,7 +210,7 @@
                   <dd id="metricIntents">0</dd>
                 </div>
                 <div>
-                  <dt>Situations sauvegardées</dt>
+                  <dt>Situations sauvegardees</dt>
                   <dd id="metricSaved">0</dd>
                 </div>
               </dl>
@@ -210,8 +221,8 @@
 
       <footer class="safety-footer">
         <strong>Limite claire:</strong>
-        EduCalm ne pose pas de diagnostic et ne remplace pas un vétérinaire,
-        un éducateur ou un service d'urgence.
+        EduCalm ne pose pas de diagnostic et ne remplace pas un veterinaire,
+        un educateur, un professionnel de sante ou un service d'urgence.
       </footer>
     </div>
   </body>

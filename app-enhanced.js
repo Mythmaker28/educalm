@@ -1,4 +1,4 @@
-const sources = {
+﻿const sources = {
   avsab: "AVSAB: privilégier renforcement, désensibilisation et contre-conditionnement; éviter douleur, peur et intimidation.",
   wsava: "WSAVA: évaluer alimentation, poids et score corporel; escalader au vétérinaire si signe médical.",
   aap: "AAP/HealthyChildren: discipline positive, limite claire, réparation; pas de violence ni humiliation.",
@@ -1368,22 +1368,22 @@ function enhanceCopy() {
   if (h1) h1.textContent = "EduCalm";
   const meta = document.querySelector("meta[name='description']");
   if (meta) {
-    meta.content = "EduCalm aide à réagir avec calme face aux situations difficiles avec chiens, chats et enfants.";
+    meta.content = "EduCalm aide a reprendre le cadre face aux situations difficiles avec enfants, chiens, chats, equides et autres animaux.";
   }
   const heroProof = document.querySelector(".hero-proof");
   if (heroProof) {
     heroProof.innerHTML = `
-      <span>${scenarios.length} fiches concrètes</span>
-      <span>Chiens, chats, enfants</span>
-      <span>Nutrition et poids</span>
+      <span>${scenarios.length} fiches concretes</span>
+      <span>Enfants et animaux</span>
+      <span>Garde-fous visibles</span>
     `;
   }
   const libraryTitle = document.querySelector("#panel-library .section-heading h2");
-  if (libraryTitle) libraryTitle.textContent = "Situations et guides prêts à tester";
+  if (libraryTitle) libraryTitle.textContent = "Situations et guides prets a tester";
   const libraryEyebrow = document.querySelector("#panel-library .eyebrow");
-  if (libraryEyebrow) libraryEyebrow.textContent = "Bibliothèque structurée";
+  if (libraryEyebrow) libraryEyebrow.textContent = "Bibliotheque structuree";
   const priceTitle = document.querySelector(".price-card h2");
-  if (priceTitle) priceTitle.textContent = "Pack calme 7 jours à 4,90 €";
+  if (priceTitle) priceTitle.textContent = "Pack calme 7 jours a 4,90 EUR";
 }
 
 function enhanceForm() {
@@ -1984,3 +1984,4 @@ document.querySelectorAll("[data-jump-tab]").forEach((button) => {
 });
 
 initialize();
+
