@@ -1,66 +1,51 @@
-# Sauvegarder EduCalm sur GitHub
+﻿# Sauvegarder EduCalm sur GitHub
 
-Le workspace actuel n'est pas encore un depot Git. `git` et `gh` ne sont pas dans le PATH PowerShell, mais Codex fournit un Git utilisable ici:
-
-```powershell
-$git = "C:\Users\tommy\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\git\cmd\git.exe"
-```
-
-## 1. Creer un depot GitHub vide
-
-Dans GitHub:
-
-1. New repository
-2. Nom: `educalm`
-3. Public ou Private
-4. Ne coche pas README, .gitignore, licence
-5. Cree le depot
-6. Copie l'URL HTTPS, par exemple:
+Le projet est deja pousse sur GitHub:
 
 ```text
-https://github.com/TON_COMPTE/educalm.git
+https://github.com/Mythmaker28/educalm
 ```
 
-## 2. Initialiser et pousser depuis PowerShell
+Branche:
 
-Remplace `TON_COMPTE` par ton identifiant GitHub.
+```text
+main
+```
+
+## Commandes utiles
+
+Depuis PowerShell:
 
 ```powershell
 cd "C:\Users\tommy\.paperclip\instances\default\workspaces\febc6414-5a62-44ae-a99e-26cd12fcd83d\educalm-mvp"
 
 $git = "C:\Users\tommy\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\git\cmd\git.exe"
 
-& $git init
-& $git config user.name "Tommy Lepesteur"
-& $git config user.email "tommy@example.com"
-& $git add index.html styles.css app-enhanced.js DEPLOY.md README.md netlify.toml vercel.json qa-smoke-cdp.mjs SAVE_TO_GITHUB.md
-& $git commit -m "Initial EduCalm prototype"
-& $git branch -M main
-& $git remote add origin "https://github.com/TON_COMPTE/educalm.git"
-& $git push -u origin main
+& $git status -sb
+& $git add index.html styles.css app-enhanced.js README.md DEPLOY.md SAVE_TO_GITHUB.md netlify.toml vercel.json qa-smoke-cdp.mjs .gitignore
+& $git commit -m "Update EduCalm"
+& $git push
 ```
 
-Si GitHub demande un mot de passe, il faut utiliser un token GitHub, pas ton mot de passe normal.
+## Ce qu'il ne faut pas publier
 
-## 3. Alternative immediate sans GitHub
+Le `.gitignore` exclut:
 
-Creer une archive locale:
+- captures locales `qa-*.png`;
+- ancien script `app.js`;
+- script de chantier `tools-expand-animals.mjs`;
+- logs et fichiers systeme.
+
+## Archive locale
+
+Pour creer une sauvegarde zip:
 
 ```powershell
 Compress-Archive -Path "C:\Users\tommy\.paperclip\instances\default\workspaces\febc6414-5a62-44ae-a99e-26cd12fcd83d\educalm-mvp" -DestinationPath "C:\tmp\educalm-mvp.zip" -Force
 ```
 
-Le fichier sera ici:
+Archive deja creee:
 
 ```text
 C:\tmp\educalm-mvp.zip
 ```
-
-## 4. Publier sans Git
-
-Pour tester vite:
-
-1. Va sur Netlify Drop.
-2. Glisse le dossier `educalm-mvp`.
-3. Recupere l'URL publique.
-4. Ajoute Stripe Payment Link dans le bouton de paiement quand tu veux tester un vrai achat.

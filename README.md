@@ -1,18 +1,24 @@
-# EduCalm Chien - MVP mobile-first
+﻿# EduCalm - MVP mobile-first
 
-MVP statique sans backend, sans compte et sans API IA. Il valide l'expérience avant de construire une application lourde.
+Prototype statique, sans backend, sans compte et sans API IA. Il sert a valider si des personnes veulent vraiment utiliser et payer un outil de reprise de calme avant de construire une application lourde.
+
+Repository public:
+
+```text
+https://github.com/Mythmaker28/educalm
+```
 
 ## Ce qui est inclus
 
-- Mode `Je vais exploser` avec protocole 30 secondes.
-- Générateur structuré PATTE pour 8 situations chien.
-- Garde-fous prioritaires: morsure, douleur, enfant impliqué, adulte hors contrôle.
-- Bibliothèque de situations.
+- Mode `Je vais exploser` avec protocole court en moins de 30 secondes.
+- Generateur structure PATTE pour chiens, chats, enfants, nutrition, foyer, equides, NAC, oiseaux et autres animaux.
+- Garde-fous: danger immediat, morsure, douleur, enfant implique, adulte hors controle, signes veterinaire urgents.
+- Bibliotheque de situations.
 - Historique local supprimable.
-- Test d'intention prix: plan 7 jours à 4,90 EUR, enregistré en local.
+- Test d'intention prix: plan 7 jours a 4,90 EUR, enregistre en local.
 - Export/copie du plan et de l'historique.
 
-## Lancer
+## Lancer en local
 
 Ouvrir directement:
 
@@ -20,27 +26,55 @@ Ouvrir directement:
 educalm-mvp/index.html
 ```
 
-Ou servir le dossier localement:
+Ou servir le dossier:
 
 ```powershell
 python -m http.server 4173 -d educalm-mvp
 ```
 
-Puis ouvrir `http://localhost:4173`.
+Puis ouvrir:
 
-## Stratégie produit implémentée
+```text
+http://localhost:4173
+```
 
-Segment de départ: chien uniquement, sous marque EduCalm.
+## Fichiers utiles
 
-Pourquoi: risque légal plus faible que les enfants, problème concret, acquisition possible sans réseau, et cohérence avec le cadre PATTE du brief source.
+- `index.html`: interface.
+- `styles.css`: design mobile-first.
+- `app-enhanced.js`: logique produit et base de situations.
+- `netlify.toml`: config de deploiement Netlify.
+- `vercel.json`: config Vercel.
+- `qa-smoke-cdp.mjs`: smoke test navigateur.
 
-Le MVP évite d'être un wrapper ChatGPT: la valeur vient de cas pré-écrits, structure fixe, garde-fous, interface d'urgence et plan 7 jours.
+## Positionnement
 
-## Prochaine étape logique
+EduCalm ne vend pas "une IA". EduCalm vend une reponse structuree, rapide et prudente quand quelqu'un sent qu'il va perdre le controle face a une situation familiale ou animale.
 
-Si les signaux locaux ou terrain montrent de l'intérêt:
+Promesse simple:
 
-1. Brancher Stripe Payment Links pour tester le vrai paiement à 4,90 EUR.
-2. Ajouter collecte email côté backend simple.
-3. Ajouter IA uniquement en reformulation contrainte, jamais en chat libre.
-4. Ajouter 10 à 15 situations chien avant chats/enfants.
+```text
+Reprendre le cadre en moins de 30 secondes, sans crier, sans improviser, sans ignorer les vrais signaux d'alerte.
+```
+
+## Vente de depart
+
+Prix de depart recommande: 4,90 EUR en paiement unique pour un pack 7 jours.
+
+Packs testables:
+
+- Chien calme: rappel, laisse, aboiements, mordillements, protection ressource.
+- Chat maison propre: litiere, griffades, miaulements nocturnes, cohabitation.
+- Enfant crise du soir: crise, ecrans, coucher, fratrie, refus de consigne.
+- Equides securite: colique, poids, morsure/manipulation, embarquement van, chaleur/eau.
+- NAC vigilance: lapin qui ne mange plus, rongement dangereux, cochon d'Inde qui maigrit.
+- Oiseaux maison: cris, picage, enrichissement et signes d'alerte.
+
+## A ne pas promettre
+
+- Pas de diagnostic medical, veterinaire ou psychologique.
+- Pas de remplacement d'un professionnel.
+- Pas de chat libre qui invente des protocoles.
+- Pas de conseil coercitif ou punitif.
+
+La valeur doit venir de cas structures, sources, garde-fous et plans actionnables.

@@ -1,39 +1,56 @@
-# Publier EduCalm
+﻿# Publier EduCalm
 
-Le MVP est statique: `index.html`, `styles.css`, `app.js`. Il peut donc etre mis en ligne sans serveur.
+Le MVP est statique: `index.html`, `styles.css`, `app-enhanced.js`. Il peut etre mis en ligne sans serveur.
 
-## Option la plus rapide: Netlify Drop
+Le code est deja pousse ici:
 
-1. Ouvrir Netlify Drop.
-2. Glisser-deposer le dossier `educalm-mvp`.
-3. Recuperer l'URL publique gratuite.
-4. Tester le parcours sur mobile.
-5. Partager cette URL dans les posts, groupes et messages.
+```text
+https://github.com/Mythmaker28/educalm
+```
 
-## Option plus propre: Vercel
+## Option recommandee: Netlify depuis GitHub
 
-1. Mettre le dossier `educalm-mvp` dans un repo GitHub.
-2. Importer le repo dans Vercel.
-3. Choisir `educalm-mvp` comme racine du projet.
-4. Laisser la commande de build vide.
-5. Recuperer l'URL publique Vercel.
+1. Ouvre Netlify dans ton navigateur.
+2. Choisis `Add new site`.
+3. Choisis `Import an existing project`.
+4. Connecte GitHub si Netlify le demande.
+5. Choisis le repo `Mythmaker28/educalm`.
+6. Laisse la commande de build vide.
+7. Laisse le dossier de publication sur `.`.
+8. Netlify detectera `netlify.toml`.
+9. Lance `Deploy`.
+10. Teste l'URL publique sur mobile.
 
-## Vendre le plan 7 jours
+Cette option est la meilleure pour vendre: chaque push GitHub peut redeployer le site.
+
+## Option rapide: Netlify Drop
+
+1. Va sur Netlify Drop.
+2. Glisse-depose le dossier local `educalm-mvp`.
+3. Recupere l'URL publique gratuite.
+4. Teste le parcours sur mobile.
+5. Partage cette URL dans tes messages et posts.
+
+Limite: ce n'est pas relie au repo GitHub. Pour mettre a jour, il faut redeposer le dossier.
+
+## Option Vercel
+
+1. Importe le repo `Mythmaker28/educalm` dans Vercel.
+2. Laisse la commande de build vide.
+3. Laisse le dossier racine sur `.`.
+4. Deploie.
+
+## Brancher un vrai paiement
 
 Version simple:
 
-1. Creer un produit Stripe: `Plan 7 jours EduCalm Chien`.
+1. Cree un produit Stripe: `Plan 7 jours EduCalm`.
 2. Prix: `4,90 EUR`, paiement unique.
-3. Creer un Stripe Payment Link.
-4. Remplacer le bouton de validation par ce lien public.
-5. Apres paiement, envoyer le plan par email ou rediriger vers une page de confirmation.
+3. Cree un Stripe Payment Link.
+4. Remplace le bouton de validation par ce lien public.
+5. Apres paiement, redirige vers une page de confirmation ou envoie le plan par email.
 
-## Version propre apres validation
-
-- Ajouter un formulaire email backend: Tally, Formspree, Supabase ou Airtable.
-- Ajouter Stripe Payment Links avant un vrai checkout custom.
-- Garder le mode sans compte tant que le volume est faible.
-- Brancher une IA seulement pour reformuler, pas pour inventer le protocole.
+Ne construis pas un checkout custom avant d'avoir des signaux de paiement.
 
 ## Seuil de validation
 
@@ -44,21 +61,10 @@ Ne construis pas plus lourd tant que tu n'as pas au moins:
 - 15 emails;
 - 3 paiements ou intentions fortes.
 
-## Pack vendable recommandé
+## Message de vente test
 
-Ne vends pas "une IA". Vends un pack concret:
-
-- Pack Chien calme: rappel, laisse, aboiements, mordillements, protection ressource.
-- Pack Chat maison propre: litière, griffades, miaulements nocturnes, cohabitation.
-- Pack Enfant crise du soir: crise, écrans, coucher, fratrie, refus de consigne.
-- Pack Poids et ration: score corporel, friandises, transition alimentaire, suivi poids.
-
-Prix de départ: 4,90 EUR par pack 7 jours. Si 3 paiements arrivent, créer une version 9,90 EUR avec email de suivi manuel.
-## Extensions vendables ajoutees
-
-- Pack Equides securite: colique, poids, morsure/manipulation, embarquement van, chaleur/eau.
-- Pack NAC vigilance: lapin qui ne mange plus, rongement dangereux, cochon d'Inde qui maigrit.
-- Pack Oiseaux maison: cris, picage, enrichissement et signes d'alerte.
-- Pack Basse-cour: poule abattue, eau/chaleur, ponte anormale.
-
-Ces packs doivent etre vendus comme aide au triage et aux routines, pas comme diagnostic veterinaire.
+```text
+J'ai construit une mini-app pour les moments ou tu sens que tu vas exploser avec ton chien, ton chat, ton enfant ou un autre animal.
+Tu choisis la situation, tu coches les risques, et tu recuperes quoi faire maintenant, quoi dire, quoi eviter et quand consulter.
+Je teste un pack 7 jours a 4,90 EUR. Tu veux l'essayer ?
+```
