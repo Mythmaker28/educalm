@@ -15,14 +15,14 @@
     <div class="app-shell">
       <header class="topbar">
         <div class="brand-lockup">
-          <span class="brand-mark" aria-hidden="true">E</span>
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
           <div>
             <p class="eyebrow">Prototype terrain</p>
             <h1>EduCalm</h1>
           </div>
         </div>
         <div class="topbar-actions">
-          <button class="ghost-link" type="button" data-jump-tab="validation">Offre 4,90 EUR</button>
+          <button class="ghost-link" type="button" data-jump-tab="validation">Pack 4,90 EUR</button>
           <button class="icon-button" id="clearDataButton" type="button" title="Effacer les donnees locales" aria-label="Effacer les donnees locales">
             <span aria-hidden="true">x</span>
           </button>
@@ -32,26 +32,25 @@
       <main>
         <section class="hero-band" aria-labelledby="hero-title">
           <div class="dog-scene" aria-hidden="true">
-            <div class="field-card">
-              <div class="field-card-top">
-                <span class="status-dot"></span>
-                <strong>30 sec</strong>
+            <div class="protocol-card">
+              <div class="protocol-head">
+                <span>Protocole 30 secondes</span>
+                <strong>30 s</strong>
               </div>
-              <p>Stop. Distance. Phrase courte. Suite claire.</p>
-              <div class="field-steps">
-                <span>securiser</span>
-                <span>dire</span>
-                <span>eviter</span>
-                <span>escalader</span>
+              <div class="protocol-grid">
+                <div class="protocol-step"><span>01</span><strong>Stop</strong><small>Tu coupes le geste.</small></div>
+                <div class="protocol-step"><span>02</span><strong>Distance</strong><small>Tu securises l'espace.</small></div>
+                <div class="protocol-step"><span>03</span><strong>Phrase</strong><small>Tu dis une limite courte.</small></div>
+                <div class="protocol-step"><span>04</span><strong>Suite</strong><small>Tu sais quoi eviter.</small></div>
               </div>
             </div>
           </div>
           <div class="hero-copy">
             <p class="eyebrow">Avant de crier</p>
-            <h2 id="hero-title">Une reponse courte quand la tension monte.</h2>
+            <h2 id="hero-title">Une réponse courte quand la tension monte.</h2>
             <p>
               EduCalm transforme une situation tendue en plan lisible: quoi faire maintenant,
-              quoi dire, quoi eviter et quand demander de l'aide.
+              quoi dire, quoi éviter et quand demander de l'aide.
             </p>
             <div class="hero-proof" aria-label="Points forts">
               <span>52 fiches concretes</span>
@@ -64,7 +63,7 @@
         <section class="sales-strip" aria-label="Offre de validation">
           <div>
             <p class="eyebrow">Test vendable</p>
-            <strong>URL publique, pack 7 jours, paiement simple. Pas besoin d'une app lourde pour tester.</strong>
+            <strong>Une URL publique et un bouton Stripe suffisent pour tester une vraie vente.</strong>
           </div>
           <button class="secondary-button" type="button" data-jump-tab="validation">Voir l'offre</button>
         </section>
@@ -76,7 +75,7 @@
           </button>
           <button class="primary-action" id="repeatButton" type="button">
             <span class="button-icon" aria-hidden="true">↻</span>
-            <span>Probleme qui revient</span>
+            <span>Problème qui revient</span>
           </button>
         </section>
 
@@ -135,7 +134,7 @@
             </fieldset>
 
             <div class="field-block full">
-              <label for="detailsInput">Detail utile, optionnel</label>
+              <label for="detailsInput">Détail utile, optionnel</label>
               <textarea
                 id="detailsInput"
                 name="details"
@@ -227,3 +226,4 @@
     </div>
   </body>
 </html>
+
